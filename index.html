@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KwaJoe's Fast Food & Shisanyama</title>
+</head>
+
+<div id="popup" class="popup">Item added to cart ✅</div>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>🔥 KwaJoe's Fast Food & Shisanyama</h1>
+        <p>Fresh Kasi Taste • Order & Pay In-Store Only</p>
+
+         <!-- CATEGORY NAV -->
+    <nav id="category-nav">
+      <button onclick="showCategory('all')">All</button>
+      <button onclick="showCategory('chicken')">Chicken</button>
+      <button onclick="showCategory('beef')">Beef</button>
+      <button onclick="showCategory('fastfood')">Fast Food</button>
+      <button onclick="showCategory('drinks')">Drinks</button>
+      <button onclick="showCategory('specials')">Specials</button>
+      <button onclick="showCategory('premium')">Premium</button>
+
+    <!-- CART BUTTON -->
+    <div id="cart-btn" onclick="toggleCart()">
+        🧾 Cart (<span id="cart-count">0</span>)
+    </div>
+    </header>
+
+
+    <main>
+
+        <!-- MENU -->
+        <section id="menu">
+            <h2>🍽️ Menu</h2>
+
+            <section id="cat-chicken" class="category">
+
+    <h3>🍗 Chicken & Grill</h3>
+
+    <div class="item" data-category="chicken">
+        <img src="assets/full-chicken.jpeg">
+        <h4>Full Chicken</h4>
+        <p>Price: R83</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="chicken">
+        <img src="assets/chicken-breast.jpeg">
+        <h4>Chicken Breast</h4>
+        <p>Price: R65</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="chicken">
+        <img src="assets/grilled-drums.jpeg">
+        <h4>5 Grilled Drumsticks</h4>
+        <p>Price: R130</p>
+        <button disabled>Unavailable</button>
+    </div>
+
+    <div class="item" data-category="chicken">
+        <img src="assets/wings.jpeg">
+        <h4>Fried Wings</h4>
+        <p>Price: R60</p>
+        <button>Add to Order</button>
+    </div>
+
+</section>
+
+            <section id="cat-beef" class="category">
+    <h3>🥩 Beef</h3>
+
+    <div class="item" data-category="beef">
+        <img src="assets/beef-stew.jpeg" alt="Beef Stew">
+        <h4>Beef Stew</h4>
+        <p>Price: R70</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="beef">
+        <img src="assets/beef-strips.jpeg" alt="Beef Strips">
+        <h4>Beef Strips</h4>
+        <p>Price: R85</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="beef">
+        <img src="assets/steak.jpeg" alt="Steak">
+        <h4>Steak</h4>
+        <p>Price: R90</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="beef">
+        <img src="assets/beef-combo1.jpeg" alt="Beef Combo 1">
+        <h4>Beef Combo 1</h4>
+        <p>Price: R110</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="beef">
+        <img src="assets/beef-combo2.jpeg" alt="Beef Combo 2">
+        <h4>Beef Combo 2</h4>
+        <p>Price: R130</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="beef">
+        <img src="assets/beef-combo3.jpeg" alt="Beef Combo 3">
+        <h4>Beef Combo 3</h4>
+        <p>Price: R120</p>
+        <button disabled>Unavailable</button>
+    </div>
+</section>
+
+           <section id="cat-fastfood" class="category">
+
+    <h3>🍟 Fast Food</h3>
+
+    <div class="item" data-category="fastfood">
+        <img src="assets/fried-chips.jpeg" alt="Chips">
+        <h4>Side Chips</h4>
+        <p>Price: R25</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="fastfood">
+        <img src="assets/amagwinya.jpeg" alt="Amagwinya">
+        <h4>Amagwinya</h4>
+        <p>Price: R5</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="fastfood">
+        <img src="assets/chese-fries.jpeg" alt="Cheesy Fries">
+        <h4>Cheesy Fries</h4>
+        <p>Price: R50</p>
+        <button disabled>Unavailable</button>
+    </div>
+
+    <div class="item" data-category="fastfood">
+        <img src="assets/chicken-wraps.jpeg" alt="Wrap">
+        <h4>Chicken Wrap</h4>
+        <p>Price: R50</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="fastfood">
+        <img src="assets/wings.jpeg" alt="Wings">
+        <h4>10 Wings</h4>
+        <p>Price: R95</p>
+        <button>Add to Order</button>
+    </div>
+
+</section>
+
+            <!-- DRINKS -->
+            <section id="cat-drinks" class="category">
+    
+    <h3>🥤 Drinks</h3>
+
+    <div class="item" data-category="drinks">
+        <img src="assets/drinks.jpeg" alt="Drinks">
+        <h4>Cold Drinks</h4>
+        <p>Price: R20</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="drinks">
+        <img src="assets/drink-dumps.jpeg" alt="Drink dumps">
+        <h4>Drink dumps</h4>
+        <p>Price: R45</p>
+        <button>Add to Order</button>
+    </div>
+
+</section>
+
+                <section id="cat-specials" class="category">
+    
+    <h3>🔥 Shinyama Specials</h3>
+
+    <div class="item" data-category="specials">
+        <img src="assets/special1.jpeg" alt="Special 1">
+        <h4>Burger and Fries / Wraps and Fries</h4>
+        <p>Price: R55</p>
+        <button disabled>Unavailable</button>
+    </div>
+
+    <div class="item" data-category="specials">
+        <img src="assets/special2.jpeg" alt="Special 2">
+        <h4>Dunked wings, fries & rolls</h4>
+        <p>Price: R100</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="specials">
+        <img src="assets/special3.jpeg" alt="Special 3">
+        <h4>Chicken Wraps,wings,fries & salad</h4>
+        <p>Price: R155</p>
+        <button>Add to Order</button>
+    </div>
+
+</section>
+           <section id="cat-premium" class="category">
+    
+    <h3>🍹 Premium Drinks</h3>
+
+    <div class="item" data-category="premium">
+        <img src="assets/mocktail.jpeg" alt="Mocktail">
+        <h4>Mocktails</h4>
+        <p>Price: R70</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="premium">
+        <img src="assets/pineapple-mocktail.jpeg" alt="Pineapple Mocktail">
+        <h4>Pineapple Mocktail</h4>
+        <p>Price: R70</p>
+        <button>Add to Order</button>
+    </div>
+
+    <div class="item" data-category="premium">
+        <img src="assets/jar-cocktail.jpeg" alt="Jar Cocktail">
+        <h4>Jar Cocktails</h4>
+        <p>Price: R135</p>
+        <button disabled>Unavailable</button>
+    </div>
+
+    <div class="item" data-category="premium">
+        <img src="assets/cocktails.jpeg" alt="Cocktail">
+        <h4>Cocktails</h4>
+        <p>Price: R85</p>
+        <button disabled>Unavailable</button>
+    </div>
+
+</section>
+        <!-- CART SIDEBAR -->
+        <section id="cart">
+            <h2>🧾 Your Order</h2>
+            <ul id="order-list"></ul>
+            <p id="total">Total Items: 0</p>
+            <button id="place-order">Place Order (Pay In Store)</button>
+            <p>📍 Collect & Pay at KwaJoe's Counter</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 KwaJoe's Fast Food & Shisanyama</p>
+    </footer>
+
+</body>
+<script src="script.js"></script>
+</html>
