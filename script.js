@@ -2,10 +2,10 @@
 // KWAJOE'S CART SYSTEM
 // ===============================
 
-// CART DATA
-let cart = [];
+// CART DATA (loaded from localStorage)
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// MENU ITEMS (must match your HTML items logically)
+// MENU ITEMS
 const menuItems = {
     "Full Chicken": 83,
     "Chicken Breast": 65,
@@ -37,6 +37,10 @@ const menuItems = {
     "Jar Cocktails": 135,
     "Cocktails": 85
 };
+
+// ===============================
+// SHOW CATEGORY FILTER
+// ===============================
 function showCategory(category) {
     const items = document.querySelectorAll(".item");
 
@@ -49,24 +53,6 @@ function showCategory(category) {
                 : "none";
         }
     });
-
-    document.addEventListener("DOMContentLoaded", () => {
-    showCategory("all"); // 👈 THIS makes "All" the default
-
-    const buttons = document.querySelectorAll("button");
-
-    buttons.forEach(button => {
-        const text = button.parentElement.querySelector("h4");
-
-        if (text && button.innerText === "Add to Order") {
-            button.addEventListener("click", () => {
-                addToCart(text.innerText);
-            });
-        }
-    });
-
-    document.getElementById("place-order").addEventListener("click", placeOrder);
-});
 }
 
 // ===============================
@@ -80,67 +66,44 @@ function addToCart(itemName) {
         return;
     }
 
-    cart.push({ name: itemName, price: price });
-    updateCartUI();
-
-    showPopup(itemName + " added to cart 🛒");
-}
-// ===============================
-// REMOVE ITEM FROM CART
-// ===============================
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCartUI();
-}
-
-// ===============================
-// UPDATE CART UI
-// ===============================
-function updateCartUI() {
-    const orderList = document.getElementById("order-list");
-    const totalDisplay = document.getElementById("total");
-
-    orderList.innerHTML = "";
-
-    let totalItems = 0;
-    let totalPrice = 0;
-
-    cart.forEach((item, index) => {
-        totalItems++;
-        totalPrice += item.price;
-
-        const li = document.createElement("li");
-        li.innerHTML = `
-            ${item.name} - R${item.price}
-            <button onclick="removeFromCart(${index})">Remove</button>
-        `;
-
-        orderList.appendChild(li);
-    });
-
-    totalDisplay.innerHTML = `Total Items: ${totalItems} | Total Price: R${totalPrice}`;
-}
-
-// ===============================
-// PLACE ORDER
-// ===============================
-function placeOrder() {
-    if (cart.length === 0) {
-        alert("Your cart is empty!");
-        return;
+    // Check if item already in cart
+    let existingItem = cart.find(item => item.name === itemName);
+    
+    if (existingItem) {
+        existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+        cart.push({ name: itemName, price: price, quantity: 1 });
     }
+    
+    // Save to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+    
+    showPopup(itemName + " added to cart ✅");
+}
 
-    alert("Order placed successfully! Please pay at KwaJoe's counter.");
+// ===============================
+// SHOW POPUP NOTIFICATION
+// ===============================
+function showPopup(message) {
+    const popup = document.getElementById("popup");
+    if (popup) {
+        popup.innerText = message;
+        popup.classList.add("show");
 
-    // clear cart after order
-    cart = [];
-    updateCartUI();
+        setTimeout(() => {
+            popup.classList.remove("show");
+        }, 2000);
+    }
 }
 
 // ===============================
 // CONNECT BUTTONS TO HTML
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
+    // Initialize category filter
+    showCategory("all");
+
+    // Add click listeners to all "Add to Order" buttons
     const buttons = document.querySelectorAll("button");
 
     buttons.forEach(button => {
@@ -152,17 +115,4 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     });
-
-    // Place order button
-    document.getElementById("place-order").addEventListener("click", placeOrder);
 });
-document.getElementById("cart-count").innerText = cart.length;
-function showPopup(message) {
-    const popup = document.getElementById("popup");
-    popup.innerText = message;
-    popup.classList.add("show");
-
-    setTimeout(() => {
-        popup.classList.remove("show");
-    }, 2000);
-}

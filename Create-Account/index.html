@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KWA JOE'S FAST FOOD AND SHISANYAMA</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function togglePassword(id) {
+            const pass = document.getElementById(id);
+            pass.type = pass.type === "password" ? "text" : "password";
+        }
+
+        function confirmAccount() {
+            const name = document.getElementById("name").value.trim();
+            const surname = document.getElementById("surname").value.trim();
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const contact = document.getElementById("contact").value.trim();
+            const pass1 = document.getElementById("password").value;
+            const pass2 = document.getElementById("confirmPassword").value;
+
+            // Validate Name
+            if (!name) {
+                document.getElementById("demo").innerText = "⚠️ Name is required. Please enter your full name.";
+                return false;
+            }
+
+            // Validate Surname
+            if (!surname) {
+                document.getElementById("demo").innerText = "⚠️ Surname is required. Please enter your surname.";
+                return false;
+            }
+
+            // Validate Username
+            if (!username) {
+                document.getElementById("demo").innerText = "⚠️ Username is required. Please create a username.";
+                return false;
+            }
+
+            // Validate Email
+            if (!email) {
+                document.getElementById("demo").innerText = "⚠️ Email is required. Please enter a valid email address.";
+                return false;
+            }
+            if (!email.includes("@")) {
+                document.getElementById("demo").innerText = "⚠️ Invalid email format. Please enter a valid email address.";
+                return false;
+            }
+
+            // Validate Contact Number
+            if (!contact) {
+                document.getElementById("demo").innerText = "⚠️ Contact number is required. Please enter your phone number.";
+                return false;
+            }
+
+            // Validate Password
+            if (!pass1) {
+                document.getElementById("demo").innerText = "⚠️ Password is required. Please enter a password.";
+                return false;
+            }
+
+            // Validate Password Match
+            if (pass1 !== pass2) {
+                document.getElementById("demo").innerText = "⚠️ Passwords do not match! Please ensure both password fields are identical.";
+                return false;
+            }
+
+            document.getElementById("demo").innerText = "✅ Account created successfully! Welcome to KWA JOE'S!";
+            return false; // stop reload (for demo)
+        }
+    </script>
+  
+
+<body>
+    <button class="back-btn" onclick="history.back()">← Back</button>
+    <h1>Welcome To KWA JOE'S FAST FOOD AND SHISANYAMA</h1>
+    <h2>Create your account</h2>
+
+    <form onsubmit="return confirmAccount()">
+
+        <p><label>Name:</label></p>
+            <input type="text" id="name" name="Name" placeholder="Please enter your full name" style="border-radius:10px;text-align:center;background-color:transparent" required>
+     
+
+        <p><label>Surname:</label></p>
+            <input type="text" id="surname" name="Surname" placeholder="Please enter your surname" style="border-radius:10px;text-align:center;background-color:transparent" required>
+ 
+
+        <p><label>Username:</label></p>
+            <input type="text" id="username" name="Username" placeholder="Create a unique username" style="border-radius:10px;text-align:center;background-color:transparent" required>
+ 
+
+        <p><label>Email:</label></p>
+            <input type="email" id="email" name="email" placeholder="Please enter your email address" style="border-radius:10px;text-align:center;background-color:transparent" required>
+          
+
+        <p><label>Contact Number:</label></p>
+            <input type="tel" id="contact" name="contactNumber" placeholder="Enter your phone number (e.g., +27 or 0)"
+                   pattern="^(\+27|0)[6-8][0-9]{8}$"
+                  style="border-radius:10px;text-align:center;background-color:transparent" required>
+        
+
+        <p><label>Enter your Password:</label></p>
+            <input type="password" id="password" placeholder="Password" style="border-radius:10px;text-align:center;background-color:transparent" required>
+            
+        
+
+        <p><label>Confirm your Password:</label></p>
+            <input type="password" id="confirmPassword" placeholder="Password" style="border-radius:10px;text-align:center;background-color:transparent" required>
+            
+
+        <p><button type="submit">Create Account</button></p>
+         
+
+    </form>
+
+    <p id="demo" style="color:white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); font-weight: bold;"></p>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment - KWA JOE'S</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Complete Your Payment</h1>
+        <a href="../Order-Placement/index.html" class="btn-back">← Back to Order</a>
+    </div>
+
+    <div class="container">
+        <!-- LEFT -->
+        <div class="left">
+            <div class="card">
+                <h3>Select Payment Method</h3>
+
+                <label class="radio-label">
+                    <input type="radio" name="payment" value="card" checked onclick="toggleCard()"> 
+                    Credit/Debit Card
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="payment" value="cash" onclick="toggleCard()"> 
+                    Cash on Delivery
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="payment" value="counter" onclick="toggleCard()"> 
+                    Pay at Counter
+                </label>
+            </div>
+
+            <!-- CARD DETAILS -->
+            <div class="card" id="cardDetails">
+                <h3>Card Details</h3>
+                <input id="cardName" placeholder="Name on Card">
+                <input id="cardNumber" placeholder="Card Number (16 digits)">
+                <input id="expiry" placeholder="MM/YY">
+                <input id="cvv" placeholder="CVV (3 digits)">
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+            <!-- ORDER SUMMARY -->
+            <div class="card">
+                <h3>Order Items</h3>
+                <ul id="receiptList"></ul>
+            </div>
+
+            <!-- DELIVERY/PICKUP INFO -->
+            <div class="card" id="deliveryInfo">
+                <h3>Delivery Details</h3>
+                <p id="deliveryDetails"></p>
+            </div>
+
+            <!-- RECEIPT -->
+            <div class="card">
+                <h3>Order Summary</h3>
+                <p>Subtotal: R<span id="subtotal">0</span></p>
+                <p>Tip: R<span id="tipAmount">0</span></p>
+                <h2>Total: R<span id="total">0</span></h2>
+
+                <button class="btn-success" onclick="confirmOrder()">Confirm Payment</button>
+                <button class="btn-danger" onclick="goBack()">Cancel Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

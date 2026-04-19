@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Your Order - KWA JOE'S</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>📦 View Your Order</h1>
+        <a href="../index.html" class="btn-back">← Back to Menu</a>
+    </div>
+
+    <div class="container">
+        <!-- CART & SUMMARY -->
+        <div class="order-section">
+
+            <div class="card">
+                <h4>Your Cart</h4>
+                <ul id="cartList"></ul>
+                <p id="emptyCart" style="color: #ffeb3b; font-weight: bold; text-align: center;">No items in cart. Go back to Menu to add items!</p>
+            </div>
+
+            <div class="card">
+                <h4>Delivery Details</h4>
+                <input placeholder="Address" id="address">
+                <textarea placeholder="Special Instructions" id="instructions"></textarea>
+                <input value="30 - 45 mins" readonly>
+            </div>
+
+            <div class="card">
+                <h4>Pickup Option</h4>
+                <label style="display: flex; align-items: center; color: white;">
+                    <input type="checkbox" id="pickup"> Pick up instead of delivery
+                </label>
+                <label style="color: #ffeb3b; font-weight: bold; margin-top: 8px; display: block;">Select Pickup Time:</label>
+                <input type="time" id="pickupTime">
+            </div>
+
+            <div class="card">
+                <h4>Tip Amount</h4>
+                <input type="range" min="0" max="100" value="0" id="tip" oninput="updateTotal()">
+                <p id="tipLabel">0%</p>
+            </div>
+
+            <div class="card">
+                <h4>Order Summary</h4>
+                <p>Subtotal: R<span id="subtotal">0</span></p>
+                <p>Tip: R<span id="tipAmount">0</span></p>
+                <h2>Total: R<span id="total">0</span></h2>
+
+                <button class="btn-success" onclick="goToPayment()">Proceed to Payment</button>
+                <button class="btn-danger" onclick="goBack()">Clear Cart</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ORDER HISTORY -->
+    <div class="container">
+        <div class="order-section">
+            <div class="card">
+                <h4>📜 Order History</h4>
+                <div id="historyContainer">
+                    <p style="color: #ffeb3b; text-align: center;">No previous orders found.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
