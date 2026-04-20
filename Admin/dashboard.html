@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>ADMIN PANEL</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="manage-menu.html">Manage Menu</a>
+    <a href="manage-orders.html">Orders</a>
+    <a href="manage-users.html">Users</a>
+    <a href="logout.html">Logout</a>
+</div>
+
+<div class="overlay">
+    <div class="main">
+
+        <h1>Dashboard</h1>
+
+        <!-- TOP STATS (REAL SYSTEM STYLE) -->
+        <div style="display:flex; gap:15px; flex-wrap:wrap;">
+
+            <div class="card" style="flex:1; min-width:200px;">
+                <h3>💰 Total Sales</h3>
+                <h2>R 12,450</h2>
+                <p>Today earnings</p>
+            </div>
+
+            <div class="card" style="flex:1; min-width:200px;">
+                <h3>📦 Orders</h3>
+                <h2>120</h2>
+                <p>All time orders</p>
+            </div>
+
+            <div class="card" style="flex:1; min-width:200px;">
+                <h3>👥 Customers</h3>
+                <h2>58</h2>
+                <p>Registered users</p>
+            </div>
+
+        </div>
+
+        <!-- QUICK ACTIONS -->
+        <div class="card">
+            <h2>Quick Actions</h2>
+
+            <a href="manage-menu.html" class="btn btn-add">➕ Add Food Item</a>
+            <a href="manage-orders.html" class="btn btn-edit">📋 View Orders</a>
+            <a href="manage-users.html" class="btn btn-edit">👤 Manage Users</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

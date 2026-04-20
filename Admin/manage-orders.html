@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Orders</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>POS ADMIN</h2>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="manage-menu.html">Manage Menu</a>
+    <a href="manage-orders.html">Orders</a>
+    <a href="manage-users.html">Users</a>
+    <a href="logout.html">Logout</a>
+</div>
+
+<div class="overlay">
+    <div class="main">
+
+        <h1>Orders Management</h1>
+
+        <div class="card">
+
+            <table style="width:100%; border-collapse: collapse; color:white;">
+                
+                <tr style="background: rgba(255,165,0,0.3);">
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr>
+                    <td>#001</td>
+                    <td>John Doe</td>
+                    <td>Beef Burger</td>
+                    <td>R45</td>
+                    <td>Pending</td>
+                    <td><button class="btn btn-edit">Mark Done</button></td>
+                </tr>
+
+                <tr>
+                    <td>#002</td>
+                    <td>Sarah M.</td>
+                    <td>Grilled Chicken</td>
+                    <td>R60</td>
+                    <td>Delivered</td>
+                    <td><button class="btn btn-delete">Remove</button></td>
+                </tr>
+
+                <tr>
+                    <td>#003</td>
+                    <td>Mike T.</td>
+                    <td>Burger + Chips</td>
+                    <td>R80</td>
+                    <td>Preparing</td>
+                    <td><button class="btn btn-edit">Update</button></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

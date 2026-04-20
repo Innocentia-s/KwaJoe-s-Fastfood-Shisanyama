@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url("https://images.unsplash.com/photo-1600891964092-4316c288032e") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Dark overlay for readability */
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    min-height: 100vh;
+    padding: 20px;
+    color: white;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(20, 20, 20, 0.95);
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: orange;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background: orange;
+    color: black;
+}
+
+/* Main content */
+.main {
+    margin-left: 240px;
+    padding: 20px;
+}
+
+/* Cards */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+/* Buttons */
+.btn {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-edit { background: orange; }
+.btn-delete { background: red; color: white; }
+.btn-add { background: green; color: white; }
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+table tr:hover {
+    background: rgba(255,255,255,0.1);
+}
